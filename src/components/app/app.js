@@ -6,10 +6,13 @@ import ErrorButton from '../error-button';
 import './app.css';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
+import SwapiService from '../../services/swapi-service';
+
+import ItemList from './../item-list/item-list';
 
 
 export default class App extends Component {
-	
+	swapiService = new SwapiService();
 	state = {
 		showRandomPlanet: true,
 		hasError: false
@@ -25,7 +28,6 @@ export default class App extends Component {
 
 
 	componentDidCatch() {
-		console.log('componentDidCatch()');
 		this.setState({hasError: true});
 	}
 
@@ -54,10 +56,9 @@ export default class App extends Component {
 				</div>
 				
 				<PeoplePage />
-				<span><p></p></span>
-				<PeoplePage />
-				<span><p></p></span>
-				<PeoplePage />
+
+		
+
 			</div>
 		);
 	};
