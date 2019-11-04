@@ -8,7 +8,9 @@ import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
 import SwapiService from '../../services/swapi-service';
 
-import ItemList from './../item-list/item-list';
+import ItemList from './../item-list';
+import Row from './../row/row';
+import ItemDetails from '../item-details';
 
 
 export default class App extends Component {
@@ -40,11 +42,30 @@ export default class App extends Component {
 		const planet = this.state.showRandomPlanet ?
 			<RandomPlanet/> :
 			null;
+		
+		const {getPerson, getStarship, getPersonImage, getStarShipImage} = this.swapiService;
+
+		const personDetails = (
+			<ItemDetails 
+				itemId={3} 
+				getData={getPerson}
+				getImageURL={getPersonImage} />
+		);
+		
+		const starshipDetails = (
+			<ItemDetails 
+				itemId={5} 
+				getData={getStarship} 
+				getImageURL={getStarShipImage} />
+		);
+		
 		return (
 			<div>
 				<Header />
-				{ planet }
+				
 
+				<Row left={personDetails} right={starshipDetails} />
+				
 				<div className="row mb2 button-row">
 					<button
 						className="toggle-planet btn btn-warning btn-lg"
@@ -55,11 +76,9 @@ export default class App extends Component {
 					<ErrorButton />
 				</div>
 				
-				<PeoplePage />
-
-		
-
 			</div>
 		);
 	};
 };
+/* <PeoplePage /> */
+// { planet }
