@@ -3,6 +3,16 @@ import Spinner from '../spinner';
 import './item-details.css';
 import ErrorButton from '../error-button';
 
+export const Record = ({ item, field, label }) => {
+	return (
+		<li className="list-group-item">
+			<span className="term">{label}</span>
+			<span>{item[field]}</span>
+		</li>
+	);
+};
+
+
 export default class ItemDetails extends Component {
 
 	state = {
@@ -42,8 +52,8 @@ export default class ItemDetails extends Component {
 		
 		if (this.state.loading) {return <Spinner />};
 		
-		const { item: {name, gender, birthYear, eyeColor}, image } = this.state;
-		
+		const { item: {name}, image, item } = this.state;
+		console.log(item);
 		return (
 			<div className="person-details card">
 			<img className="person-image"
@@ -52,22 +62,17 @@ export default class ItemDetails extends Component {
 			<div className="card-body">
 				<h4>{name}</h4>
 				<ul className="list-group list-group-flush">
-				<li className="list-group-item">
-					<span className="term">Gender</span>
-					<span>{gender}</span>
-				</li>
-				<li className="list-group-item">
-					<span className="term">Birth Year</span>
-					<span>{birthYear}</span>
-				</li>
-				<li className="list-group-item">
-					<span className="term">Eye Color</span>
-					<span>{eyeColor}</span>
-				</li>
+					{ 
+						React.Children.map(this.props.children, (child) => {
+							return React.cloneElement(child, {item});
+						})
+					}
 				</ul>
 				<ErrorButton/>
 			</div>
 			</div>
 	)
 	}
-}
+};
+
+;
