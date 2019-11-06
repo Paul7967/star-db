@@ -53,7 +53,7 @@ export default class ItemDetails extends Component {
 		if (this.state.loading) {return <Spinner />};
 		
 		const { item: {name}, image, item } = this.state;
-		console.log(item);
+		
 		return (
 			<div className="person-details card">
 			<img className="person-image"

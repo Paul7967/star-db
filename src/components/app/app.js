@@ -42,7 +42,8 @@ export default class App extends Component {
 			<RandomPlanet/> :
 			null;
 		
-		const {getPerson, getStarship, getPersonImage, getStarShipImage} = this.swapiService;
+		const {getPerson, getStarship, getPersonImage, getStarShipImage, 
+				getAllPeople, getAllPlanets} = this.swapiService;
 
 		const personDetails = (
 			<ItemDetails 
@@ -73,6 +74,19 @@ export default class App extends Component {
 			<div>
 				<Header />
 				
+				<ItemList  
+					getData={getAllPeople}
+					onItemSelected = {()=>{}} >
+					{(i) => ( 
+						`${i.name} (${i.birthYear})`
+					)}
+				</ItemList>
+				<p>____</p>
+				<ItemList  
+					getData={getAllPlanets}
+					onItemSelected = {()=>{}} >
+					{ ({name}) => <span>{name}</span> }
+				</ItemList>
 
 				<Row left={personDetails} right={starshipDetails} />
 				
