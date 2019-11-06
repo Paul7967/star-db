@@ -10,6 +10,12 @@ import SwapiService from '../../services/swapi-service';
 import ItemList from './../item-list';
 import Row from './../row/row';
 import ItemDetails, {Record} from '../item-details/item-details';
+import { PersonDetails,
+	PlanetDetails,
+	StarshipDetails,
+	PersonList,
+	PlanetList,
+	StarshipList } from '../sw-components';
 
 
 export default class App extends Component {
@@ -45,51 +51,33 @@ export default class App extends Component {
 		const {getPerson, getStarship, getPersonImage, getStarShipImage, 
 				getAllPeople, getAllPlanets} = this.swapiService;
 
-		const personDetails = (
-			<ItemDetails 
-				itemId={5} 
-				getData={getPerson}
-				getImageURL={getPersonImage} >
-
-				<Record field="gender" label="Gender" />
-				<Record field="eyeColor" label="Eye Color" />
-
-			</ItemDetails>
-		);
-		
-		const starshipDetails = (
-			<ItemDetails 
-				itemId={5} 
-				getData={getStarship} 
-				getImageURL={getStarShipImage} >
-			
-				<Record field="model" label="Model" />
-				<Record field="length" label="Length" />
-				<Record field="costInCredits" label="Cost" />
-			
-			</ItemDetails>
-		);
-		
 		return (
 			<div>
 				<Header />
 				
-				<ItemList  
-					getData={getAllPeople}
-					onItemSelected = {()=>{}} >
-					{(i) => ( 
-						`${i.name} (${i.birthYear})`
-					)}
-				</ItemList>
+				<PersonDetails itemId={11} />
 				<p>____</p>
-				<ItemList  
-					getData={getAllPlanets}
+				<StarshipDetails  itemId={5} />
+				<p>____</p>
+				<PlanetDetails  itemId={9} />
+				<p>____</p>
+
+				<p>____</p>
+				<PersonList  
 					onItemSelected = {()=>{}} >
 					{ ({name}) => <span>{name}</span> }
-				</ItemList>
+				</PersonList>
+				<p>____</p>
+				<StarshipList  
+					onItemSelected = {()=>{}} >
+					{ ({name}) => <span>{name}</span> }
+				</StarshipList>
+				<p>____</p>
+				<PlanetList  
+					onItemSelected = {()=>{}} >
+					{ ({name}) => <span>{name}</span> }
+				</PlanetList>
 
-				<Row left={personDetails} right={starshipDetails} />
-				
 				<div className="row mb2 button-row">
 					<button
 						className="toggle-planet btn btn-warning btn-lg"
