@@ -63,21 +63,12 @@ export default class App extends Component {
 				<p>____</p>
 
 				<p>____</p>
-				<PersonList  
-					onItemSelected = {()=>{}} >
-					{ ({name}) => <span>{name}</span> }
-				</PersonList>
+				<PersonList /> 				
 				<p>____</p>
-				<StarshipList  
-					onItemSelected = {()=>{}} >
-					{ ({name}) => <span>{name}</span> }
-				</StarshipList>
+				<StarshipList /> 
 				<p>____</p>
-				<PlanetList  
-					onItemSelected = {()=>{}} >
-					{ ({name}) => <span>{name}</span> }
-				</PlanetList>
-
+				<PlanetList /> 
+				
 				<div className="row mb2 button-row">
 					<button
 						className="toggle-planet btn btn-warning btn-lg"
