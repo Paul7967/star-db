@@ -26,7 +26,7 @@ export default class ItemDetails extends Component {
 	}
 	
 	componentDidUpdate(prevProps) {
-		if (this.props.itemId != prevProps.itemId) {
+		if (this.props.itemId !== prevProps.itemId) {
 			this.updateItem();
 		}
 	}
@@ -56,7 +56,7 @@ export default class ItemDetails extends Component {
 		
 		return (
 			<div className="person-details card">
-			<img className="person-image"
+			<img className="person-image" alt="person"
 				src={image} />
 
 			<div className="card-body">
