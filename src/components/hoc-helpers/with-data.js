@@ -13,7 +13,7 @@ const withData = (View) => {
 		onError = (err) => {
 			this.setState({
 				error: true,
-				loading: false
+				loading: false				
 			});
 		};
 
@@ -32,6 +32,10 @@ const withData = (View) => {
 		};
 
 		update() {
+			this.setState({
+				loading: true,
+				error: false
+			});
 			this.props.getData()
 				.then(this.onDataLoaded)
 				.catch(this.onError);
