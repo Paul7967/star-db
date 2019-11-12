@@ -45,7 +45,7 @@ export default class App extends Component {
 					<div>
 						<Header onServiceChange={this.onServiceChange}/>
 
-						<RandomPlanet/>
+						<RandomPlanet updateInterval={500000} />
 
 						<PeoplePage />
 						<StarshipsPage />
