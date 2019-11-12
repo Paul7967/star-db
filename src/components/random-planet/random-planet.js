@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../spinner';
 import SwapiService from '../../services/swapi-service';
-
+import DummySwapiService from './../../services/dummy-swapi-service';
 import './random-planet.css';
 import ErrorIndicator from '../error-indicator';
 
@@ -18,7 +18,7 @@ export default class RandomPlanet extends Component {
 		updateInterval: PropTypes.number
 	};
 
-	swapiService = new SwapiService();
+	swapiService = new DummySwapiService();
 
 	state = {
 		planet: {},
@@ -48,7 +48,8 @@ export default class RandomPlanet extends Component {
 	};
 
 	updatePlanet = () => {
-		const id = Math.floor(Math.random()*10) + 3;
+		const id = 1; // поменял временно т.к. swapi.co временно недоступен
+		// const id = Math.floor(Math.random()*10) + 3;
 		this.swapiService
 			.getPlanet(id)
 			.then(this.onPlanetLoaded)

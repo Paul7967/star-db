@@ -1,3 +1,4 @@
 git add -A
 git commit
-echo 'Data commited'
+git push
+echo 'Data pushed to remote server'
