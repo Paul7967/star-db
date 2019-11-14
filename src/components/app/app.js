@@ -11,13 +11,14 @@ import DummySwapiService from './../../services/dummy-swapi-service';
 import { PeoplePage, StarshipsPage, PlanetsPage } from '../pages';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { StarshipDetails } from '../sw-components';
 
 
 export default class App extends Component {
 	
 	state = {
 		hasError: false,
-		swapiService: new DummySwapiService()
+		swapiService: new SwapiService()
 	}
 
 	onServiceChange = () => {
@@ -55,7 +56,12 @@ export default class App extends Component {
 								   exact />
 							<Route path="/people" component={PeoplePage} />
 							<Route path="/planets" component={PlanetsPage} />
-							<Route path="/starships" component={StarshipsPage} />
+							<Route path="/starships" exact component={StarshipsPage} />
+							<Route path="/starships/:id" 
+								    render={({match}) => { 
+										const { id } = match.params;
+										return <StarshipDetails itemId={id} />
+									}} />
 							
 						</div>
 					</Router>	

@@ -18,7 +18,8 @@ export default class RandomPlanet extends Component {
 		updateInterval: PropTypes.number
 	};
 
-	swapiService = new DummySwapiService();
+	// swapiService = new DummySwapiService();  // включал когда SwapiService был не доступен
+	swapiService = new SwapiService();
 
 	state = {
 		planet: {},
@@ -48,8 +49,8 @@ export default class RandomPlanet extends Component {
 	};
 
 	updatePlanet = () => {
-		const id = 1; // поменял временно т.к. swapi.co временно недоступен
-		// const id = Math.floor(Math.random()*10) + 3;
+		// const id = 1; // поменял временно т.к. swapi.co временно недоступен
+		const id = Math.floor(Math.random()*10) + 3;
 		this.swapiService
 			.getPlanet(id)
 			.then(this.onPlanetLoaded)
