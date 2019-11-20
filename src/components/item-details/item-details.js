@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Spinner from '../spinner';
 import './item-details.css';
-import ErrorButton from '../error-button';
 
 export const Record = ({ item, field, label }) => {
 	return (
@@ -18,7 +17,8 @@ export default class ItemDetails extends Component {
 	state = {
 		item: null,
 		image: null,
-		loading: true
+		loading: true,
+		itemSelected: false
 	};
 
 	componentDidMount() {
@@ -36,6 +36,8 @@ export default class ItemDetails extends Component {
 	updateItem() {
 		const { itemId, getData, getImageURL } = this.props;
 		if (!itemId) {
+			this.setState({ loading: false });
+			this.setState({ itemSelected: false });
 			return;
 		}
 		this.setState({ loading: true });
@@ -45,7 +47,8 @@ export default class ItemDetails extends Component {
 				this.setState({ 
 					item, 
 					image: getImageURL(item),
-					loading: false 
+					loading: false,
+					itemSelected: true 
 				});
 			});
 	}
@@ -54,8 +57,11 @@ export default class ItemDetails extends Component {
 		
 		if (this.state.loading) {return <Spinner />};
 		
+		if (!this.state.itemSelected) {
+			return <span>Select a item from a list</span>;
+		}
 		const { item: {name}, image, item } = this.state;
-		
+
 		return (
 			<div className="person-details card">
 			<img className="person-image" alt="person"
@@ -70,7 +76,6 @@ export default class ItemDetails extends Component {
 						})
 					}
 				</ul>
-				<ErrorButton/>
 			</div>
 			</div>
 	)
