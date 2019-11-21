@@ -10,7 +10,7 @@ import ErrorBoundry from '../error-boundry';
 import DummySwapiService from './../../services/dummy-swapi-service';
 import { PeoplePage, StarshipsPage, PlanetsPage, SecretPage, LoginPage } from '../pages';
 
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { StarshipDetails } from '../sw-components';
 
 

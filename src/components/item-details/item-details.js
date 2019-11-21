@@ -60,6 +60,7 @@ export default class ItemDetails extends Component {
 		if (!this.state.itemSelected) {
 			return <span>Select a item from a list</span>;
 		}
+		
 		const { item: {name}, image, item } = this.state;
 
 		return (

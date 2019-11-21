@@ -13,7 +13,7 @@ const withSwapiService =(mapMethodsToProps) => (Wpapped) => {
 					)
 				}
 			}
-		</SwapiServiceConsumer>
+			</SwapiServiceConsumer>
 		)
 	}
 };
