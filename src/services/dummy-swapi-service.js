@@ -74,20 +74,6 @@ export default class DummySwapiService {
   ];
 
   _planets = [
-    {
-		id: 1,
-		name: 'Earth [TEST DATA]',
-		population: '7.530.000.000',
-		rotationPeriod: '23 hours 56 seconds',
-		diameter: '12.742 km'
-    },
-    {
-		id: 2,
-		name: 'Venus [TEST DATA]',
-		population: 'not known',
-		rotationPeriod: '243 days',
-		diameter: '12.104 km'
-	},
 	{
 		id: 3,
 		name: 'Alderaan', 
@@ -129,21 +115,38 @@ export default class DummySwapiService {
 		population: '30000000', 
 		rotation_period: '18', 
 		diameter: '4900'
+	},
+	{
+		id: 9,
+		name: 'Naboo', 
+		population: '4500000000', 
+		rotation_period: '26', 
+		diameter: '12120'
+	}, 
+	{
+		id: 10,
+		name: 'Coruscant', 
+		population: '1000000000000', 
+		rotation_period: '24', 
+		diameter: '12240'
+	}, 
+	{
+		id: 11,
+		name: 'Kamino', 
+		population: '1000000000', 
+		rotation_period: '27', 
+		diameter: '19720'
+	}, 
+	{
+		id: 12,
+		name: 'Geonosis', 
+		population: '100000000000', 
+		rotation_period: '30', 
+		diameter: '11370'
 	}
   ];
 
   _starships = [
-    {
-		id: '1',
-		name: 'USS Enterprise [TEST DATA]',
-		model: 'NCC-1701-C',
-		manufacturer: 'Northrop Grumman Shipbuilding',
-		costInCredits: 'not known',
-		length: 'approx 300 meters',
-		crew: 1000,
-		passengers: 50,
-		cargoCapacity: 100
-	},
 	{
 		id: '2',
         name: 'Executor', 

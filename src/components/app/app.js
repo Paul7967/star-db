@@ -58,7 +58,7 @@ export default class App extends Component {
 						<div className="stardb-app">
 							<Header onServiceChange={this.onServiceChange}/>
 
-							<RandomPlanet updateInterval={500000} />
+							<RandomPlanet updateInterval={10000} />
 
 							<Switch>
 								<Route path="/" 
