@@ -75,6 +75,20 @@ export default class DummySwapiService {
 
   _planets = [
 	{
+		id: 1,
+		name: 'Kamino', 
+		population: '1000000000', 
+		rotation_period: '27', 
+		diameter: '19720'
+	}, 
+	{
+		id: 2,
+		name: 'Geonosis', 
+		population: '100000000000', 
+		rotation_period: '30', 
+		diameter: '11370'
+	},
+	{
 		id: 3,
 		name: 'Alderaan', 
 		population: '2000000000',
@@ -129,24 +143,21 @@ export default class DummySwapiService {
 		population: '1000000000000', 
 		rotation_period: '24', 
 		diameter: '12240'
-	}, 
-	{
-		id: 11,
-		name: 'Kamino', 
-		population: '1000000000', 
-		rotation_period: '27', 
-		diameter: '19720'
-	}, 
-	{
-		id: 12,
-		name: 'Geonosis', 
-		population: '100000000000', 
-		rotation_period: '30', 
-		diameter: '11370'
 	}
   ];
 
   _starships = [
+	{
+		id: '1',
+        name: 'Slave 1', 
+		model: 'Firespray-31-class patrol and attack', 
+		manufacturer: 'Kuat Systems Engineering', 
+		costInCredits: 'unknown', 
+		length: '21.5', 
+		crew: '1', 
+		passengers: '6', 
+		cargoCapacity: '70000'
+	},
 	{
 		id: '2',
         name: 'Executor', 
@@ -223,18 +234,7 @@ export default class DummySwapiService {
 		crew: '1', 
 		passengers: '0', 
 		cargoCapacity: '150'
-	}, 
-	{
-		id: '9',
-        name: 'Slave 1', 
-		model: 'Firespray-31-class patrol and attack', 
-		manufacturer: 'Kuat Systems Engineering', 
-		costInCredits: 'unknown', 
-		length: '21.5', 
-		crew: '1', 
-		passengers: '6', 
-		cargoCapacity: '70000'
-	}
+	}	
   ];
 
   getAllPeople = async () => {
